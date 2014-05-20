@@ -5,7 +5,7 @@ public class Rubik {
 	private color cube[][][];
 
 	public enum color {
-		BLUE, YELLOW, GREEN, WHITE, ORANGE, RED
+		BLUE, YELLOW, GREEN, WHITE, ORANGE, REDD
 	}
 
 	public Rubik() {
