@@ -33,7 +33,7 @@ public class Rubik {
 			for (int j = 0; j < 3; j++) {
 				cube[j][0][i] = cube[j + 1][0][i];
 			}
-			cube[4][0][i] = aux;
+			cube[3][0][i] = aux;
 		}
 		System.out.println("U");
 	};
@@ -46,7 +46,7 @@ public class Rubik {
 			for (int j = 0; j < 3; j++) {
 				cube[j][2][i] = cube[j + 1][2][i];
 			}
-			cube[4][2][i] = aux;
+			cube[3][2][i] = aux;
 		}
 		System.out.println("B");
 	};
