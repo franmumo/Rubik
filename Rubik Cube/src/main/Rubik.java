@@ -98,7 +98,7 @@ public class Rubik {
 		cube[5][0][0] = aux[0];
 		cube[5][0][1] = aux[1];
 		cube[5][0][2] = aux[2];
-		
+
 		System.out.println("F");
 	};
 
@@ -123,7 +123,7 @@ public class Rubik {
 		cube[5][2][0] = aux[0];
 		cube[5][2][1] = aux[1];
 		cube[5][2][2] = aux[2];
-		
+
 		System.out.println("B");
 	};
 
@@ -148,7 +148,7 @@ public class Rubik {
 		cube[5][0][2] = aux[0];
 		cube[5][1][2] = aux[1];
 		cube[5][2][2] = aux[2];
-		
+
 		System.out.println("R");
 	};
 
@@ -173,7 +173,7 @@ public class Rubik {
 		cube[5][0][0] = aux[0];
 		cube[5][1][0] = aux[1];
 		cube[5][2][0] = aux[2];
-		
+
 		System.out.println("L");
 	};
 
@@ -198,7 +198,7 @@ public class Rubik {
 		cube[5][0][0] = aux[0];
 		cube[5][0][1] = aux[1];
 		cube[5][0][2] = aux[2];
-		
+
 		System.out.println("LF");
 	};
 
@@ -223,7 +223,7 @@ public class Rubik {
 		cube[5][2][0] = aux[0];
 		cube[5][2][1] = aux[1];
 		cube[5][2][2] = aux[2];
-		
+
 		System.out.println("LB");
 	};
 
@@ -248,7 +248,7 @@ public class Rubik {
 		cube[5][0][2] = aux[0];
 		cube[5][1][2] = aux[1];
 		cube[5][2][2] = aux[2];
-		
+
 		System.out.println("LR");
 	};
 
@@ -273,34 +273,47 @@ public class Rubik {
 		cube[5][0][0] = aux[0];
 		cube[5][1][0] = aux[1];
 		cube[5][2][0] = aux[2];
-		
+
 		System.out.println("LL");
 	};
 
 	public void printFace(int num) {
-		for (int i = 0; i < 5; i++) {
-			System.out.print(" ");
-		}
-
-		System.out.print("\n");
-
-		for (int i = 0; i < 3; i++) {
-			System.out.print(" ");
-			for (int j = 0; j < 3; j++) {
-				System.out.print(cube[num][i][j]);
+		if (num >= 4) {
+			// Lineas del cubo
+			for (int i = 0; i < 3; i++) {
+				for (int j = 0; j < 7; j++) {
+					System.out.print(" ");
+				}
+				System.out.print(" ");
+				for (int j = 0; j < 3; j++) {
+					System.out.print(cube[num][i][j]);
+					System.out.print(" ");
+				}
+				for (int j = 0; j < 7 * 2; j++) {
+					System.out.print(" ");
+				}
+				System.out.print("\n");
+			}
+			
+			// Linea vacia
+			for (int i = 0; i < 7 * 4; i++) {
 				System.out.print(" ");
 			}
 			System.out.print("\n");
-		}
-
-		for (int i = 0; i < 5; i++) {
-			System.out.print(" ");
-		}
-	}
-
-	public void printEmptyFace() {
-		for (int i = 0; i < 2; i++) {
-			for (int j = 0; j < 2; j++) {
+			
+		} else {
+			for (int i = 0; i < 3; i++) {
+				for (int j = 0; j < 4; j++) {
+					System.out.print(" ");
+					for (int k = 0; k < 3; k++) {
+						System.out.print(cube[j][i][k]);
+						System.out.print(" ");
+					}
+				}
+				System.out.print("\n");
+			}
+			// Linea vacia
+			for (int i = 0; i < 7 * 4; i++) {
 				System.out.print(" ");
 			}
 			System.out.print("\n");
@@ -309,14 +322,8 @@ public class Rubik {
 
 	public void printCube() {
 		printFace(4);
-		printEmptyFace();
-		printFace(0);
 		printFace(1);
-		printFace(2);
-		printFace(3);
-		printEmptyFace();
 		printFace(5);
-		printEmptyFace();
 	}
 
 	public static void main(String[] args) {
@@ -324,11 +331,11 @@ public class Rubik {
 		cubo.printCube();
 		cubo.spinBack();
 		cubo.printCube();
-		cubo.spinBottom();
-		cubo.printCube();
 		cubo.spinFront();
 		cubo.printCube();
-		cubo.spinLessLeft();
+		cubo.spinRigth();
+		cubo.printCube();
+		cubo.spinBottom();
 		cubo.printCube();
 	}
 }
